@@ -4,9 +4,12 @@
 """
 
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+# 确保无论从哪里运行都能找到项目根目录的 .env
+_PROJECT_ROOT = Path(__file__).resolve().parent
+load_dotenv(_PROJECT_ROOT / ".env")
 
 # API Keys
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
